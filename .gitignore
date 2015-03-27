@@ -1,0 +1,58 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+jarlist.cache
+
+# jacoco files
+*.exec
+*.ec
+
+# generated files
+*/bin/
+*/gen/
+*/out/
+
+# Local configuration file (sdk path, etc)
+local.properties
+release.properties
+
+# Eclipse project files
+.classpath
+.project
+.settings
+.settings/
+.DS_Store
+.factorypath
+
+# OSX files
+*.DS_Store
+
+# Intelli J project files
+.idea/
+.iml
+
+# Maven project files
+target/
+
+#Maven release files
+*.releaseBackup
+*.versionsBackup
+
+#robolectric cache
+tmp/
+
+# monkey
+monkey.log
+
+# Android Studio
+.idea
+
+# Gradle
+.gradle
+build/
