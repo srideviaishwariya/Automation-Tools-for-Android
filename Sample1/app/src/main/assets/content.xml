@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<content>
+	<item>
+		<title> Gain Energy </title>
+		<description> Oatmeal, Raisin, Banana </description>
+        <detail>
+            &lt;p&gt;&lt;h4&gt; Oatmeal &lt;/h4&gt;Provides staying power so you wont crash between the 10th and 11th laps.&lt;/p&gt;
+            &lt;p&gt;&lt;h4&gt; Raisins &lt;/h4&gt;Grab a handful during long workouts for a natural energy boost. &lt;/p&gt;
+            &lt;p&gt;&lt;h4&gt; Bananas &lt;/h4&gt;Just as effective as sports drink at keeping your electrolyte balanced. &lt;/p&gt;
+        </detail>
+    </item>
+	<item>
+		<title> Soothe Pain </title>
+		<description> Ginger, Tart Cherries, Turmeric </description>
+        <detail>
+            &lt;h4&gt; Ginger &lt;/h4&gt;&lt;p&gt;Fights nausea and can reduce muscle pain by about 20 percent.&lt;/p&gt;
+            &lt;h4&gt; Tart Cherries &lt;/h4&gt;&lt;p&gt;They neutralize free radicals so you can recover faster.&lt;/p&gt;
+            &lt;h4&gt; Turmeric &lt;/h4&gt;&lt;p&gt;The spice that makes curry yellow acts like ibuprofen against joint pain.&lt;/p&gt;
+        </detail>
+	</item>
+    <item>
+        <title> Build Muscle </title>
+        <description> Eggs, Whey Protien, Salmon or Tuna </description>
+        <detail>
+            &lt;h4&gt; Eggs &lt;/h4&gt;&lt;p&gt;This rich source of amino acid leucine jump-starts muscle repair.&lt;/p&gt;
+            &lt;h4&gt; Whey Protein &lt;/h4&gt;&lt;p&gt;Prime building material for tight abs and toned glutes.&lt;/p&gt;
+            &lt;h4&gt; Salmon or Tuna &lt;/h4&gt;&lt;p&gt;Their protien urges your muscle to begin the strengthening process.&lt;/p&gt;        </detail>
+    </item>
+    <item>
+        <title> Spike Metabolism </title>
+        <description> Pistachios, Beet, Edamame </description>
+        <detail>
+            &lt;h4&gt; Pistachios &lt;/h4&gt;&lt;p&gt;Curb post workout hunger without packing on the pounds.&lt;/p&gt;
+            &lt;h4&gt; Beets &lt;/h4&gt;&lt;p&gt;These bad boys help you push harder with less effort during your workouts.&lt;/p&gt;
+            &lt;h4&gt; Edamame &lt;/h4&gt;&lt;p&gt;Soybeans are high in fat-torching protein and fibre.&lt;/p&gt;
+        </detail>
+    </item>
+</content>
