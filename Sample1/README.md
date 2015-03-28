@@ -57,3 +57,10 @@ Apply Jacoco plugin and version
 Run
 
 	$ ./gradlew createDebugCoverageReport
+
+The relevant generated files/folder are
+
+	/../app/build/outputs/code-coverage/connected/coverage.ec 
+	/../app/build/outputs/reports/coverage/debug/index.html 
+	
+### Getting code coverage data from Manual testing
