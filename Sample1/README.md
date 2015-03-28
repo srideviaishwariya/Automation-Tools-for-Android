@@ -1,3 +1,6 @@
+Unit Test - AndroidTest
+=======================
+
 AndroidTest framework APIs are based on the JUnit API. Android Studio automatically set up the test package to use InstrumentationTestRunner as the test case runner or you can create your own runner by extending InstrumentationTestRunner.
 
 The test cases are run either on Android emulator or device
@@ -39,6 +42,10 @@ Run the instrumentation from adb as follows,
 		
 		$ adb shell am instrument -w com.sridevi.sample1.test/.Runner
 
+Code Coverage
+=============
+
+
 ### Enable coverage on the debug build 
 
 	buildTypes {
@@ -63,4 +70,70 @@ The relevant generated files/folder are
 	/../app/build/outputs/code-coverage/connected/coverage.ec 
 	/../app/build/outputs/reports/coverage/debug/index.html 
 	
-### Getting code coverage data from Manual testing
+Getting code coverage data from Manual testing
+===============================================
+
+Create a task for generating the jacoco report
+
+	task jacocoTestReportAndroidTest(type: JacocoReport, dependsOn: "connectedAndroidTest") {
+    def coverageSourceDirs = [
+            'src/main/java'
+    ]
+    group = "Reporting"
+    description = "Generates Jacoco coverage reports"
+    reports {
+        xml{
+            enabled = true
+            destination "${buildDir}/reports/jacoco/jacoco.xml"
+        }
+        csv.enabled false
+        html{
+            enabled true
+            destination "${buildDir}/jacocoHtml"
+        }
+    }
+    classDirectories = fileTree(
+            dir: 'build/intermediates/classes',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*',
+                       '**/*Activity*.*',
+                       '**/*Fragment*.*'
+            ]
+    )
+    sourceDirectories = files(coverageSourceDirs)
+    additionalSourceDirs = files(coverageSourceDirs)
+
+    if (project.hasProperty('coverageFiles')) {
+        // convert the comma separated string to an array to create an aggregate report from
+        // multiple coverage.ec files
+        def coverageFilesArray = coverageFiles.split(',')
+        executionData = files(coverageFilesArray)
+    }
+    else {
+        executionData = files('build/outputs/code-coverage/connected/coverage.ec')
+    }
+    }
+    
+
+Run the code coverage task as follows, this will create a coverage report using the default coverage.ec file
+
+	./gradlew jacocoTestReportAndroidTest
+
+#### Manual Testing 
+
+Install the instrumented app on the device and manually test it, at the end of the test tap on the code coverage button in the settings menu, this will write the test results to /sdcard/coverage.ec, copy the coverage.ec file to your build machine. Whenever your instrumented code is running you can request a code coverage dump using EMMA's ctl tool.The application is using the following to request a coverage dump programmatically,
+
+	com.vladium.emma.rt.RT.dumpCoverageData(File outFile, boolean merge, boolean stopDataCollection)
+	
+Run code coverage with the new coverage.ec file (copy this file to your build machine using 'adb pull /sdcard/coverage.ec')
+		
+	./gradlew -PcoverageFiles=/path/to/coverage.ec jacocoTestReportAndroidTest
+
+Merging results from multiple coverage.ec file to get coverage Report
+
+	./gradlew -PcoverageFiles=/path/to/coverage1.ec,/path/to/coverage2.ec jacocoTestReportAndroidTest
+	
+
+
