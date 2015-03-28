@@ -3,8 +3,6 @@ Unit Test - AndroidTest
 
 A unit test generally tests the smallest possible unit of code (which could be a method, class, or component), without dependencies on system or network resources. AndroidTest framework APIs are based on the JUnit API. The test cases are run either on Android emulator or device
 
-This example shows how you can write a unit test to verify that an Intent is triggered to launch another Activity, the test runs in an isolated environment.
-
 When you create the project Android Studio adds **androidTest** folder where all unit test must recide. You can change this to point to diffrent location by changing the 'androidTest.setRoot' in build.gradle
 
 	android {
@@ -28,31 +26,37 @@ The example covers,
 
 ### Build and Run Your Test through commnadline
 
-	$ ./gradlew connectedAndroidTest --info
-	$ ./gradlew connectedAndroidTest
+	./gradlew connectedAndroidTest --info
+	./gradlew connectedAndroidTest
 
 ### Instrumentation
 
 An Instrumentation runs various types of TestCases against an Android package (application), a default instrumentation runner is created by Android Studio you can override this by extending InstrumentationTestRunner class and pointing to it in the build.gradle file.
+
+	public class Runner extends InstrumentationTestRunner {
+
+_
 	    
-	    android {
-				...
+	android {
+		...
     		defaultConfig {
-     				...
-					testApplicationId "com.sridevi.sample1.test"
-        			testInstrumentationRunner "com.sridevi.sample1.test.Runner"
+     			...
+			testApplicationId "com.sridevi.sample1.test"
+        		testInstrumentationRunner "com.sridevi.sample1.test.Runner"
 
 Install the instrumentation build on the device,
 
-		$ adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
-		$ adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
+	adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
+	adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
 		
 Run the instrumentation from adb as follows,
 		
-		$ adb shell pm list instrumentation
-		instrumentation:com.sridevi.sample1.test/.Runner (target=com.sridevi.sample1)
-		
-		$ adb shell am instrument -w com.sridevi.sample1.test/.Runner
+	adb shell pm list instrumentation
+	instrumentation:com.sridevi.sample1.test/.Runner (target=com.sridevi.sample1)
+	
+_	
+
+	 adb shell am instrument -w com.sridevi.sample1.test/.Runner
 
 Code Coverage
 ==============
@@ -74,7 +78,7 @@ Apply Jacoco plugin and version
 		
 Run code coverage
 
-	$ ./gradlew createDebugCoverageReport
+	./gradlew createDebugCoverageReport
 
 The relevant generated files/folder are
 
@@ -82,7 +86,14 @@ The relevant generated files/folder are
 	/../app/build/outputs/reports/coverage/debug/index.html 
 	
 ![](https://github.com/srideviaishwariya/Automation-Tools-for-Android/blob/master/Sample1/screenshots/unittest_coverage.png)
-	
+
+
+###### Running the instrumentation with code coverage through adb
+
+	adb shell am instrument -w -e coverage true -e coverageFile /sdcard/coverageresult.ec com.sridevi.sample1.test/.Runner
+		
+The result is written to /sdcard/coverageresult.ec
+
 Getting code coverage data from Manual testing
 ===============================================
 
