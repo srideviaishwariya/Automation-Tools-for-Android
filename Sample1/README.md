@@ -38,4 +38,22 @@ Run the instrumentation from adb as follows,
 		instrumentation:com.sridevi.sample1.test/.Runner (target=com.sridevi.sample1)
 		
 		$ adb shell am instrument -w com.sridevi.sample1.test/.Runner
+
+### Enable coverage on the debug build 
+
+	buildTypes {
+    		debug {
+        		testCoverageEnabled true
+    		}
+	}
+	
+Apply Jacoco plugin and version
+
+	apply plugin: 'jacoco'
+	jacoco {
+    		version "0.7.1.201405082137"
+	}
 		
+Run
+
+	$ ./gradlew createDebugCoverageReport
