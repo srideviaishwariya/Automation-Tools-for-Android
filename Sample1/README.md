@@ -5,7 +5,7 @@ A unit test generally tests the smallest possible unit of code (which could be a
 
 This example shows how you can write a unit test to verify that an Intent is triggered to launch another Activity, the test runs in an isolated environment.
 
-When you create the project Android Studio it adds a **androidTest** folder where all unit test must recide. You can change this to point to diffrent location by changing the 'androidTest.setRoot'
+When you create the project Android Studio adds **androidTest** folder where all unit test must recide. You can change this to point to diffrent location by changing the 'androidTest.setRoot' in build.gradle
 
 	android {
     		sourceSets {
@@ -20,12 +20,11 @@ The test cases are written by extending the ActivityInstrumentationTestCase2.
 
 	public class MainActivityTest
       		extends ActivityInstrumentationTestCase2<MyFirstTestActivity> {
-    
-###### Testing Activiy Lifecycle (TODO)
 
-###### Testing UI Components (TODO)
-
-###### Test against external dependencies (TODO)
+The example covers,
+* Testing Activiy Lifecycle
+* Testing UI Components
+* Test against external dependencies using Mocks (TODO)
 
 ### Build and Run Your Test through commnadline
 
