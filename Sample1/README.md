@@ -146,6 +146,6 @@ Run code coverage with the new coverage.ec file (copy this file to your build ma
 
 ![](https://github.com/srideviaishwariya/Automation-Tools-for-Android/blob/master/Sample1/screenshots/manual_coverage.png)
 
-Merging results from multiple coverage.ec file to get coverage Report
+###### Merging results from multiple runs to  get aggregated coverage Report
 
 	./gradlew -PcoverageFiles=/path/to/coverage1.ec,/path/to/coverage2.ec jacocoTestReportAndroidTest
