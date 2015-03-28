@@ -5,6 +5,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.sridevi.sample1.utils.AboutDialog;
+
 /**
  * Created by sridevi on 3/27/15.
  */
@@ -21,21 +23,20 @@ public class AnotherActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_another, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.settings_button) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.settings_button:
+                break;
+            case R.id.about_button:
+                AboutDialog.show(this);
+                break;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
 
