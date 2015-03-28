@@ -24,7 +24,7 @@ The example covers,
 * Testing UI Components
 * Test against external dependencies using Mocks (TODO)
 
-### Build and Run Your Test through commnadline
+### Build and Run Your Test through commandline
 
 	./gradlew connectedAndroidTest --info
 	./gradlew connectedAndroidTest
@@ -41,20 +41,21 @@ _
 		...
     		defaultConfig {
      			...
-			testApplicationId "com.sridevi.sample1.test"
+     			testApplicationId "com.sridevi.sample1.test"
         		testInstrumentationRunner "com.sridevi.sample1.test.Runner"
 
 Install the instrumentation build on the device,
 
 	adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
-	adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
+	adb install /path/to/Sample1/app/build/outputs/apk/app-debug-unaligned.apk 
 		
-Run the instrumentation from adb as follows,
+List the instrumentation on the device
 		
-	adb shell pm list instrumentation
+	$ adb shell pm list instrumentation
 	instrumentation:com.sridevi.sample1.test/.Runner (target=com.sridevi.sample1)
+	...
 	
-_	
+Run the instrumentation as follows from adb
 
 	 adb shell am instrument -w com.sridevi.sample1.test/.Runner
 
