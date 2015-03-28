@@ -1,6 +1,7 @@
 package com.sridevi.sample1;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -35,7 +36,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -50,6 +50,10 @@ public class MainActivity extends ActionBarActivity {
                 break;
             case R.id.about_button:
                 showAbout();
+                break;
+            case R.id.activity_button:
+                Intent intent = new Intent(this, AnotherActivity.class);
+                startActivity(intent);
                 break;
         }
         return true;

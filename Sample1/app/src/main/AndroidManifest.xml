@@ -16,6 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="AnotherActivity"
+            android:label="@string/app_name2"
+            android:parentActivityName=".AnotherActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AnotherActivity" />
+        </activity>
+
     </application>
 
 </manifest>
