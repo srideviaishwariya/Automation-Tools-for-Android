@@ -5,8 +5,4 @@
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/about_button" android:title="@string/about_button"
         android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/activity_button" android:title="@string/activity_button"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/code_coverage_button" android:title="@string/code_coverage_button"
-        android:orderInCategory="100" app:showAsAction="never" />
 </menu>

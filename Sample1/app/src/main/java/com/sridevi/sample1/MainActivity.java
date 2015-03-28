@@ -1,6 +1,5 @@
 package com.sridevi.sample1;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,9 +9,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.sridevi.sample1.customlist.CustomListFragment;
+import com.sridevi.sample1.utils.AboutDialog;
+import com.sridevi.sample1.utils.GenerateCodeCoverageData;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -49,24 +49,17 @@ public class MainActivity extends ActionBarActivity {
             case R.id.settings_button:
                 break;
             case R.id.about_button:
-                showAbout();
+                AboutDialog.show(this);
                 break;
             case R.id.activity_button:
                 Intent intent = new Intent(this, AnotherActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.code_coverage_button:
+                GenerateCodeCoverageData.dump();
+                break;
         }
         return true;
     }
 
-    protected void showAbout() {
-        // Inflate the about message contents
-        View messageView = getLayoutInflater().inflate(R.layout.dialog_about, null, false);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setIcon(R.drawable.ic_launcher);
-        builder.setTitle(R.string.app_name);
-        builder.setView(messageView);
-        builder.create();
-        builder.show();
-    }
 }
