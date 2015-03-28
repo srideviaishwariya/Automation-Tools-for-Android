@@ -10,13 +10,24 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+
+        testApplicationId "com.sridevi.sample1.test"
+        testInstrumentationRunner "com.sridevi.sample1.test.Runner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled true
+        }
     }
+}
+
+apply plugin: 'jacoco'
+jacoco {
+    version "0.7.1.201405082137"
 }
 
 dependencies {
