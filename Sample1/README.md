@@ -1,27 +1,40 @@
 Unit Test - AndroidTest
 =======================
 
-AndroidTest framework APIs are based on the JUnit API. Android Studio automatically set up the test package to use InstrumentationTestRunner as the test case runner or you can create your own runner by extending InstrumentationTestRunner.
+A unit test generally tests the smallest possible unit of code (which could be a method, class, or component), without dependencies on system or network resources. AndroidTest framework APIs are based on the JUnit API. The test cases are run either on Android emulator or device
 
-The test cases are run either on Android emulator or device
+This example shows how you can write a unit test to verify that an Intent is triggered to launch another Activity, the test runs in an isolated environment.
+
+When you create the project Android Studio it adds a **androidTest** folder where all unit test must recide. You can change this to point to diffrent location by changing the 'androidTest.setRoot'
+
+	android {
+    		sourceSets {
+        		...
+        		androidTest.setRoot('tests')
+    		}
+	}
 
 ### Writing test cases
 
 The test cases are written by extending the ActivityInstrumentationTestCase2.
 
 	public class MainActivityTest
-      extends ActivityInstrumentationTestCase2<MyFirstTestActivity> {
+      		extends ActivityInstrumentationTestCase2<MyFirstTestActivity> {
+    
+###### Testing Activiy Lifecycle (TODO)
 
+###### Testing UI Components (TODO)
+
+###### Test against external dependencies (TODO)
 
 ### Build and Run Your Test through commnadline
 
 	$ ./gradlew connectedAndroidTest --info
 	$ ./gradlew connectedAndroidTest
 
-### Add your own TestRunner
+### Instrumentation
 
-Create a class that extends InstrumentationTestRunner.
-And in the app build.gradle file add the intialize the testInstrumentationRunner to the class,
+An Instrumentation runs various types of TestCases against an Android package (application), a default instrumentation runner is created by Android Studio you can override this by extending InstrumentationTestRunner class and pointing to it in the build.gradle file.
 	    
 	    android {
 				...
@@ -30,7 +43,7 @@ And in the app build.gradle file add the intialize the testInstrumentationRunner
 					testApplicationId "com.sridevi.sample1.test"
         			testInstrumentationRunner "com.sridevi.sample1.test.Runner"
 
-Install the instrumentation and debug build on the device,
+Install the instrumentation build on the device,
 
 		$ adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
 		$ adb install /path/to/Sample1/app/build/outputs/apk/app-debug-test-unaligned.apk 
@@ -43,10 +56,9 @@ Run the instrumentation from adb as follows,
 		$ adb shell am instrument -w com.sridevi.sample1.test/.Runner
 
 Code Coverage
-=============
+==============
 
-
-### Enable coverage on the debug build 
+### Enable Jacoco code coverage on the debug build 
 
 	buildTypes {
     		debug {
@@ -61,7 +73,7 @@ Apply Jacoco plugin and version
     		version "0.7.1.201405082137"
 	}
 		
-Run
+Run code coverage
 
 	$ ./gradlew createDebugCoverageReport
 
