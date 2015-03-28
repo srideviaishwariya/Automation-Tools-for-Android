@@ -70,6 +70,8 @@ The relevant generated files/folder are
 	/../app/build/outputs/code-coverage/connected/coverage.ec 
 	/../app/build/outputs/reports/coverage/debug/index.html 
 	
+![](https://github.com/srideviaishwariya/Automation-Tools-for-Android/blob/master/Sample1/screenshots/unittest_coverage.png)
+	
 Getting code coverage data from Manual testing
 ===============================================
 
@@ -131,9 +133,8 @@ Run code coverage with the new coverage.ec file (copy this file to your build ma
 		
 	./gradlew -PcoverageFiles=/path/to/coverage.ec jacocoTestReportAndroidTest
 
+![](https://github.com/srideviaishwariya/Automation-Tools-for-Android/blob/master/Sample1/screenshots/manual_coverage.png)
+
 Merging results from multiple coverage.ec file to get coverage Report
 
 	./gradlew -PcoverageFiles=/path/to/coverage1.ec,/path/to/coverage2.ec jacocoTestReportAndroidTest
-	
-
-
