@@ -1,0 +1,20 @@
+# System-specific
+.DS_Store
+
+# User-specific
+*.iml
+/local.properties
+/.idea/.name
+/.idea/workspace.xml
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/misc.xml
+/.idea/dictionaries/
+
+# Gradle generated files
+/.gradle/
+
+# Build files
+/build/
+/app/build/

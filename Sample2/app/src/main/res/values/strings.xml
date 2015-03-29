@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Sample2</string>
+    <string name="app_name2">Another Sample1</string>
+
+    <string name="settings_button">Settings</string>
+    <string name="about_button">About</string>
+    <string name="activity_button">Start Another Activity</string>
+    <string name="code_coverage_button">Write Code Coverage</string>
+
+    <string name="app_description">This is a simple sample for code coverage</string>
+    <string name="app_credits">Created by Sridevi</string>
+
+</resources>
