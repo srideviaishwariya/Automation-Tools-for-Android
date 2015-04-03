@@ -8,24 +8,30 @@ Include the JC&K Gradle plugin to the root build.gradle file,
     // Robolectric Gradle plugin from JC&K Solutions
     classpath 'com.github.jcandksolutions.gradle:android-unit-test:2.1.1'
     
- And add the dependencies as follows in build.gradle
+ And add the following in build.gradle
 
+    apply plugin: 'com.android.application'
+    android {
+            compileSdkVersion 21
+            buildToolsVersion "21.0.1"
+            ...
+            
+            sourceSets {
+                    androidTest.setRoot('src/test')
+            }
+    }
+    
     // Docs: https://github.com/JCAndKSolutions/android-unit-test
     apply plugin: 'android-unit-test'
     
     dependencies {
-        // core android studio module
-        compile project(':core')
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile 'com.android.support:appcompat-v7:22.0.0'
+
         // roboelectric dependencies
         testCompile 'org.robolectric:robolectric:2.4'
         testCompile 'junit:junit:4.+'
-    }
-
-I am placing all test case in src/test, so point androidTest variable to this location
-
-    sourceSets {
-        ...
-        androidTest.setRoot('src/test')
+        testCompile 'com.squareup:fest-android:1.0.8'
     }
 
 Run the test cases as follows,
