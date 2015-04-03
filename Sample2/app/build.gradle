@@ -17,9 +17,51 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+         androidTest.setRoot('src/test')
+    }
+}
+
+// Docs: https://github.com/JCAndKSolutions/android-unit-test
+apply plugin: 'android-unit-test'
+
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = '0.7.1.201405082137'
+}
+
+task generateCoverageReport(type: JacocoReport, dependsOn: "testDebug") {
+    description 'Generate Jacoco test coverage report for the Debug build'
+
+    reports {
+        xml.enabled = true
+        xml.destination = "$buildDir/coverage-report/coverage.xml"
+        html.enabled = true
+        html.destination = "$buildDir/coverage-report/html"
+    }
+
+    classDirectories = fileTree(
+            dir: 'build/intermediates/classes/debug',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/BuildConfig.class',
+                       '**/*$InjectAdapter*',
+                       '**/*$ModuleAdapter*',
+                       '**/*$StaticInjection*'
+            ]
+    )
+
+    sourceDirectories = files(['src/main/java'])
+
+    executionData = files('build/jacoco/testDebug.exec')
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
+
+    // roboelectric dependencies
+    testCompile 'org.robolectric:robolectric:2.4'
+    testCompile 'junit:junit:4.+'
 }
