@@ -8,9 +8,9 @@ This project has sample code that covers the build, unit test, code coverage, UI
   * Maven
 2. Test 
   * Roboelectric
-  * Android Unit Test **Sample1**
+  * Android Unit Test
 3. Code Coverage
-  * Jacoco/Emma  **Sample1**
+  * Jacoco/Emma  
   * Corbertura
 4. UI Automation
   * Robotium
@@ -24,11 +24,8 @@ This project has sample code that covers the build, unit test, code coverage, UI
   
 Sample 1
 ==========
-
-1. Test 
-  * Android Unit Test
-2. Unit test Code Coverage,
+1. Unit test Code Coverage,
   * Manual Code Coverage 
-  * Meging mutiple coverage.ec file to get aggregated results.
+  * Merging mutiple coverage.ec file to get aggregated results.
 
 
